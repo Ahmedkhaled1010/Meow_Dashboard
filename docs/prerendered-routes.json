@@ -1,0 +1,32 @@
+{
+  "routes": [
+    "/dashboard",
+    "/dashboard/analysis",
+    "/dashboard/analysis/catrgories",
+    "/dashboard/analysis/product",
+    "/dashboard/analysis/revenue",
+    "/dashboard/analysis/variation",
+    "/dashboard/Comments",
+    "/dashboard/Marketing",
+    "/dashboard/Marketing/basket",
+    "/dashboard/Marketing/cupon",
+    "/dashboard/Media",
+    "/dashboard/Orders",
+    "/dashboard/Orders/allorder",
+    "/dashboard/Payment",
+    "/dashboard/Products",
+    "/dashboard/Products/allproduct",
+    "/dashboard/Products/allproduct/addproduct",
+    "/dashboard/Products/allproduct/addproduct/addDescription",
+    "/dashboard/Products/category",
+    "/dashboard/Products/color",
+    "/dashboard/Refund",
+    "/dashboard/Refund/allrefund",
+    "/dashboard/Refund/allrefund/refundDetails",
+    "/dashboard/settings",
+    "/dashboard/user",
+    "/dashboard/user/alluser",
+    "/dashboard/user/alluser/adduser",
+    "/login"
+  ]
+}
