@@ -1,0 +1,109 @@
+<!--
+    <div>
+    <label for="productDate" class="block font-main text-main ">Date Range : </label>
+<input type="date" name="productDate" id="productDate" class="border-main2 border-2 border-solid outline-none my-3 p-1 rounded w-4/12">
+
+
+</div>
+-->
+<div class="flex flex-wrap my-4">
+    <div class="lg:w-4/12    md:w-6/12 max-sm:w-8/12 max-sm:mx-auto p-2">
+        <div class="border-solid border-main2 border-2 rounded-2xl	p-8">
+            <p class="font-main font-normal text-xl text-main mb-4">Product #</p>
+            <span class="font-main font-normal text-2xl text-black ">{{numOfCategory}} </span>
+        </div>
+    </div>
+    <div class="lg:w-4/12    md:w-6/12 max-sm:w-8/12 max-sm:mx-auto p-2">
+        <div class="border-solid border-main2 border-2 rounded-2xl	p-8">
+            <p class="font-main font-normal text-xl text-main mb-4">Gross Revenue</p>
+            <span class="font-main font-normal text-2xl text-black ">{{total}} SR</span>
+        </div>
+    </div>
+    <div class="lg:w-4/12    md:w-6/12 max-sm:w-8/12 max-sm:mx-auto p-2">
+        <div class="border-solid border-main2 border-2 rounded-2xl	p-8">
+            <p class="font-main font-normal text-xl text-main mb-4">Average order value</p>
+            <span class="font-main font-normal text-2xl text-black ">{{avg}} SR</span>
+        </div>
+    </div>
+</div>
+<!--
+    <div class="my-12 flex justify-end ">
+    <p class=" font-main text-xl leading-6 font-semibold text-black">
+        <i class="fa-solid fa-cloud-arrow-down "></i>
+        download
+    </p>
+  
+</div>
+-->
+<div class="">
+    <table class="table-fixed w-full border-collapse border border-slate-400 ">
+        <thead class="bg-table text-head-table">
+            <th class="p-3 ">
+                Catrgory Name
+            </th>
+           <!--
+                 <th>
+                Items sold
+            </th>
+            -->
+            <th>
+                Not Sales
+            </th>
+            <th>
+                Stock
+            </th>
+        </thead>
+        <tbody class="text-center table-font font-semibold text-base table-font text-table  ">
+         @for (item of allAalysis; track $index) 
+         {
+            <tr class="border-collapse border border-slate-400 p-6 " >
+                <td class="p-4 text-row underline">
+                   {{item.category_name}}
+                </td>
+                <td>
+                    {{item.sold?item.sold:0}} SR
+                </td>
+               
+                <td>
+                    {{item.stock}}
+                </td>
+              </tr>
+
+         }
+            
+             
+        </tbody>
+    </table>
+</div>
+<!--
+    <div class="my-8 w-7/12 flex mx-auto justify-around">
+    <p>
+        Page 
+        <span>
+            1
+        </span>
+        to
+        <span>
+            5
+        </span>
+    </p>
+    <div class="flex">
+        <div class="w-6 h-6 text-center bg-arrow mx-3 cursor-pointer">
+            <i class="fa-solid fa-chevron-left"></i>
+        </div>
+        <div class="w-6 h-6 text-center bg-arrow cursor-pointer">
+            <i class="fa-solid fa-chevron-right"></i>
+        </div>
+    </div>
+    <p class="hidden lg:block">
+        Go to page
+    </p>
+    <input type="text" class="border-main w-1/12 hidden lg:block rounded  border-2 border-solid outline-none" >
+
+    <p class="hidden lg:block">
+        Rows per page
+    </p>
+    <input type="number" min="1" max="20" class="border-main w-1/12 hidden lg:block rounded  border-2 border-solid outline-none">
+
+</div>
+-->

@@ -1,0 +1,34 @@
+<div class="md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 ">
+    <div class=" ">
+        <img src="assets/Images/logo.png" class="" alt="">
+       <div class=" relative lg:-top-20 lg:w-6/12 max-sm:w-10/12 mx-auto my-4">
+       <form action="" [formGroup]="login" (ngSubmit)="checkLogin()">
+        <label for="email" class="font-main block font-normal text-base text-main">Username or Email Address </label>
+        <input id="email" formControlName="email" type="text" class="border-main border-2 border-solid outline-none w-full my-3 p-3">
+        <div *ngIf="login.get('email')?.errors && login.get('email')?.touched" class="p-2 text-center bg-red-300 text-red-500">
+            <p *ngIf="login.get('email')?.errors?.['required']">email is Required</p>
+            <p *ngIf="login.get('email')?.errors?.['email']">please enter valid email</p>
+          
+        </div>
+        <label for="Password" class="font-main block font-normal text-base text-main mt-2">Password </label>
+        <input id="Password" formControlName="password" type="text" class="border-main border-2 border-solid outline-none w-full my-3 p-3">
+        <div *ngIf="login.get('password')?.errors && login.get('password')?.touched" class="p-2 text-center bg-red-300 ">
+            <p class="text-red-500" *ngIf="login.get('password')?.errors?.['required']">password is Required</p>
+          
+        </div>
+        @if (error) {
+            <div class="p-2 text-center bg-red-300 text-red-500">
+                <p >{{logError}}</p>
+            </div>
+        }
+        <button type="submit" class="my-3 w-full bg-black text-white font-main  font-normal text-base p-3">
+            Log In
+        </button>
+       </form>
+        <p class="font-main  font-normal text-base my-1">
+            Lost your password?
+        </p>
+       </div>
+    </div>
+
+</div>

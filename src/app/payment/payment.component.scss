@@ -1,0 +1,54 @@
+::ng-deep .mdc-switch:enabled .mdc-switch__track::before 
+{
+  background-color: #3E3E3E !important;
+}
+::ng-deep .mdc-switch:enabled .mdc-switch__track::after {
+  background: #00E633 !important;
+}
+::ng-deep .mdc-switch__track::before
+{
+  height: 29px !important;
+}
+::ng-deep .mdc-switch__icon .mdc-switch__icon
+{
+  background-color: white !important;
+}
+::ng-deep .mat-slide-toggle-bar
+{
+  height: 40px !important;
+}
+:root {
+    --mat-slide-toggle-thumb-color: #ff9800;
+    --mat-slide-toggle-bar-color: #2196f3;
+    --mdc-switch-unselected-track-color:#000000;
+  }
+
+  ::ng-deep .mat-slide-toggle .mat-checked .mat-slide-toggle-thumb {
+    background-color: white !important; /* White thumb when ON */
+  }
+  ::ng-deep .mdc-switch .mdc-switch__handle
+  {
+    background-color: blue !important;
+  }
+  ::ng-deep .mdc-switch.mdc-switch--selected .mdc-switch__ripple::after
+  {
+    background-color: aqua !important;
+  }
+  ::ng-deep .mdc-switch .mdc-switch--unselected
+  {
+    background-color: #ff9800 !important;
+  }
+
+button
+{
+  background-color: #E5E5E5;
+  padding: 10px 20px;
+  border-radius: 9px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+
+}
+mat-slide-toggle[color] {
+  background-color: #00E633;
+}

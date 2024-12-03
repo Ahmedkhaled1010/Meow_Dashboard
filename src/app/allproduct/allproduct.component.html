@@ -1,0 +1,213 @@
+<div class="">
+    <div class="flex mb-6 justify-between">
+        <div class="flex justify-between items-center lg:w-5/12">
+        <div>
+         <h2 class="font-main font-semibold text-xl leading-8 text-main ">Products</h2>
+
+        </div>
+            
+                <select   class="p-2 w-4/12  rounded-md border-2  border-solid outline-none text-main text-sm  font-normal	" name="Tax" id="Tax">
+                    <option value="" disabled selected > Select a category</option>
+    
+                    <option value="free">
+                        <div class="flex ">
+                            <p >Shoes</p>
+                            <p class="ms-auto">( <span>1</span> )</p>
+                        </div>
+                    </option>
+                    <option value="standard">
+                        <div class="flex ">
+                            <p >Pants</p>
+                            <p class="ms-auto">( <span>1</span> )</p>
+                        </div>
+                    </option>
+                    <option value="standard">
+                        <div class="flex ">
+                            <p >Hoodies</p>
+                            <p class="ms-auto">( <span>1</span> )</p>
+                        </div>
+                    </option>
+                    <option value="standard">
+                        <div class="flex ">
+                            <p >Nike</p>
+                            <p class="ms-auto">( <span>1</span> )</p>
+                        </div>
+                    </option>
+                    <option value="standard">
+                        <div class="flex ">
+                            <p >Addidas</p>
+                            <p class="ms-auto">( <span>1</span> )</p>
+                        </div>
+                    </option>
+                    <option value="standard">
+                        <div class="flex ">
+                            <p >Meow shoes</p>
+                            <p class="ms-auto">( <span>1</span> )</p>
+                        </div>
+                    </option>
+                </select>
+                <select name="" id="" class="p-2 w-5/12  rounded-md border-2  border-solid outline-none text-main text-sm  font-normal	">
+                    <option value="" disabled selected>Filter by stock status</option>
+                    <option value="">in stock</option>
+                    <option value="">Out stock</option>
+                </select>
+    
+            
+        </div>
+        <div class="w-4/12 hidden lg:flex  justify-evenly items-center">
+            <input [(ngModel)]="searchWord" type="text" class="p-2 w-6/12  rounded-md border-2  border-solid outline-none text-main text-sm  font-normal">
+            <button class="p-2 w-4/12 border-2 rounded-md border-solid text-sm  font-normal">
+                Search products
+            </button>
+        </div>
+    </div>
+    <table class="table-fixed w-full border-collapse border border-slate-400 ">
+        <thead class="bg-table text-main text-sm font-semibold">
+            <tr>
+                <th class="p-3 text-black w-14  ">
+                   
+                    <input class="" type="checkbox" >
+                </th>
+                <th class="">
+                    <i class="fa-solid fa-image"></i>
+                </th>
+                <th class="text-start w-1/5 max-sm:hidden">
+                    Name
+                </th>
+                <th class="text-start">
+                    Stock
+                </th>
+                
+                <th class="text-start">
+                    Price
+                </th>
+                
+                <th class="text-start  ">
+                    Categories
+                </th>
+                
+
+                <th class="text-start  ">
+                    Date
+                </th>
+                
+                
+            </tr>
+        </thead>
+        <tbody class="text-center table-font font-semibold text-base table-font text-table  ">
+         
+           @for (item of allProduct |search:searchWord; track $index) {
+
+            <tr class="border-collapse border border-slate-400  " >
+                <td class="">
+                    <input class="w-full" type="checkbox" [value]="item.id" (change)="change($event)">
+
+                </td>
+                <td class="flex justify-center">
+                    @if (item.image !=null)
+                     {
+                        <img crossorigin="anonymous" class="w-1/2" loading="lazy" [src]="baseUrl+item.image" [alt]="baseUrl+item.image">
+
+                     }
+                     @else
+                     {
+                        <div class="bg-black w-16 h-16 flex justify-center items-center mx-auto">
+                            <i class="fa-solid fa-image fa-fw"></i>
+    
+                        </div>
+                     }
+                  
+                </td>
+                <td class=" text-sm font-semibold text-start text-row leading-8 max-sm:hidden">
+                    {{item.name}}
+                    <div >
+                        <span [id]="item.id" [routerLink]="['addproduct/addDescription',item.id]" class="border-e-2 border-solid border-main  text-xs cursor-pointer">
+                            Edit
+                        </span>
+                        <span [id]="item.id" (click)="deleteProduct(item!.id!)" class="border-e-2 border-solid border-main  text-red-500 text-xs cursor-pointer ">
+                            Remove
+                        </span>
+                        <span [routerLink]="['addVarition',item.id]" [id]="item.id" class="border-e-2 border-solid border-main  text-xs cursor-pointer">
+                            variance
+                        </span>
+                        <span [id]="item.id" (click)="duplicateProduct(item!.id!)" class=" text-xs cursor-pointer">
+                            Duplicate
+                        </span>
+                    </div>
+                </td>
+                <td class="text-start text-sm font-semibold">
+                   
+                    @if (item.stock>0) {
+                        <p ><span class="instock max-sm:block">in stock</span>  ( <span  > {{item.stock}}</span> )</p>
+
+                    }
+                    @else {
+                        <p class="outstock">Out of stock </p>
+
+
+                    }
+
+                </td>
+                <td class="text-start text-sm font-semibold">
+                    {{item.after_discount_price}} SR
+                </td>
+                <td class="text-start text-sm font-semibold  ">
+                    pants                </td>
+                <td class="text-start text-sm font-semibold">
+                    <p>
+                        Published
+                    </p>
+                    {{item.created_at?.slice(0,10)}}  at  {{item.created_at?.slice(11,16)}}
+                </td>
+              </tr>
+           }
+            
+             
+           
+        </tbody>
+    </table>
+
+    <div class="flex items-center">
+        <div class="lg:w-2/12 max-sm:w-6/12 flex justify-evenly">
+            <p routerLink="addproduct" class=" border-2 text-center p-2 text-main rounded-md cursor-pointer "  >
+                Add New
+            </p>
+            <p (click)="deleteAll()" class=" border-2 text-center p-2 text-red-500 rounded-md cursor-pointer ">
+                Remove
+            </p>
+        </div>
+        <div class="my-8 lg:w-8/12 max-sm:w-6/12 flex mx-auto justify-center ">
+            <p>
+                Page 
+                <span>
+                    {{currentPage}}
+
+                </span>
+                to
+                <span>
+                    {{numPage}}
+
+                </span>
+            </p>
+            <div class="flex">
+                <div (click)="backPage()" class="w-6 h-6 text-center bg-arrow mx-3 cursor-pointer">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </div>
+                <div (click)="nextPage()" class="w-6 h-6 text-center bg-arrow cursor-pointer">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </div>
+            <p class="mx-5 hidden lg:block">
+                Go to page
+            </p>
+            <input  (change)="goToPage($event)" type="text" class="hidden lg:block border-main w-1/12 rounded  border-2 border-solid outline-none" >
+        
+            <p class="mx-5 hidden lg:block">
+                Rows per page
+            </p>
+            <input (change)="rowPerPage($event)" type="text" min="1" max="20" class="hidden lg:block border-main w-1/12 rounded  border-2 border-solid outline-none">
+        
+        </div>
+    </div>
+
+</div>

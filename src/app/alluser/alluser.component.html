@@ -1,0 +1,113 @@
+<div class="p-3">
+    <h2 class="font-main font-semibold text-xl leading-8 text-main mb-5">User</h2>
+    <table class="table-fixed w-full border-collapse border border-slate-400 ">
+        <thead class="bg-table text-main text-sm font-semibold">
+            <tr>
+                <th class="p-3 text-black w-1/12 mx-6">
+                   
+                    <input class="w-full" type="checkbox">
+                </th>
+                <th class=" text-start">
+                    User Name
+                </th>
+                <th class="text-start ">
+                    Email
+                </th>
+                <th class=" text-start">
+                    Role
+                </th>
+                
+                
+            </tr>
+        </thead>
+        <tbody class="text-center table-font font-semibold text-base table-font text-table  ">
+         
+          @for (item of allUser; track $index) {
+
+            <tr class="border-collapse border border-slate-400 p-10 " >
+                <td class="p-5">
+                    <input class="w-full" type="checkbox">
+
+                </td>
+                <td class=" text-sm font-semibold text-start text-row leading-8">
+                    {{item.username}}
+                    <div class="flex">
+                        <span [id]="item.id" class=" text-xs cursor-pointer">
+                            Edit
+                        </span>
+                        <span [id]="item.id" (click)="deleteUser(item.id!)" class=" ms-3 ps-3 border-s-2 border-solid border-main  text-red-500 text-xs cursor-pointer ">
+                            Delete
+                        </span>
+                    </div>
+                </td>
+                <td class=" text-start text-wrap text-sm font-semibold">
+                    {{item.email}}
+
+                </td>
+                <td class=" text-start text-sm font-semibold">
+                    {{item.role}}
+                </td>
+              </tr>
+          }
+             
+            <!-- <td class=" text-sm font-semibold text-start text-row leading-8">
+                    Mahmoudshehata
+                    <div >
+                        <span class="border-e-2 border-solid border-main pe-2 text-xs cursor-pointer">
+                            Edit
+                        </span>
+                        <span class="text-red-500 text-xs cursor-pointer ps-2">
+                            Remove
+                        </span>
+                    </div>
+                </td>-->
+         
+            
+           
+        </tbody>
+    </table>
+
+    <div class="flex flex-wrap items-center my-6">
+        <div class="lg:w-2/12 md:5/12 max-sm:5/12   flex :justify-evenly ">
+            <p routerLink="adduser" class=" border-2 text-center p-2 text-main rounded-md cursor-pointer "  >
+                Add New
+            </p>
+            <p class="  border-2 text-center p-2 text-red-500 rounded-md cursor-pointer ">
+                Remove
+            </p>
+        </div>
+        <div class="lg:w-8/12 md:5/12 max-sm:5/12 items-center flex mx-auto ">
+            <p>
+                Page 
+                <span>
+                    {{currentPage}}
+                </span>
+                to
+                <span>
+                    {{numPage}}
+                </span>
+            </p>
+            <div class="flex">
+                <div (click)="backPage()" class="w-6 h-6 text-center bg-arrow mx-3 cursor-pointer">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </div>
+                <div (click)="nextPage()" class="w-6 h-6 text-center bg-arrow cursor-pointer">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </div>
+           <div class="md:hidden max-sm:hidden lg:flex">
+            <p class="mx-3">
+                Go to page
+            </p>
+            <input type="text" class="border-main w-1/12 rounded  border-2 border-solid outline-none" >
+        
+            <p class="mx-3">
+                Rows per page
+            </p>
+            <input type="number" min="1" max="20" class="border-main w-1/12 rounded  border-2 border-solid outline-none">
+           </div>
+        
+        </div>
+    </div>
+
+</div>

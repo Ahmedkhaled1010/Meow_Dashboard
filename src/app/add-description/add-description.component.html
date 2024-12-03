@@ -1,0 +1,255 @@
+<form [formGroup]="newProduct" (ngSubmit)="addproduct()">
+    <div>
+        <div class="lg:flex  justify-between my-1">
+            @if (new)
+             {
+                <h2 class="font-main  font-semibold text-2xl leading-8 lg:w-4/12 max-sm:text-center md:text-center max-sm:mb-3 md:mb-3">Add New Product</h2>
+
+             }
+             @else 
+             {
+                <h2 class="font-main  font-semibold text-2xl leading-8 lg:w-4/12 max-sm:text-center md:text-center max-sm:mb-3 md:mb-3">Update Product</h2>
+
+             }
+            <div class="flex  justify-center"> 
+                <button [disabled]="new"  class="text-black border-2  border-solid border-black max-sm:px-2 md:px-3   mx-3 py-1 lg:px-6 rounded-xl text-base font-medium ">
+                    <i  class="fa-regular fa-file-lines me-2">
+                        
+                    </i>
+                    Update
+                </button>
+                   <button [disabled]="!new"  type="submit" class="bg-coupon   mx-3 py-1 lg:px-6 max-sm:px-2 md:px-3 rounded-xl text-base font-semibold selection:border-2 selection:border-black selection:border-solid">
+                    <i class="fa-solid fa-check me-2"></i>
+                    Publish
+                   </button>
+            </div>
+        
+        </div>
+        <div class="flex  flex-wrap">
+            <div class="lg:w-4/12 max-sm:w-full md:w-full lg:order-1 max-sm:order-2 md:order-2 p-2" >
+                <!--<div class="bg-back-product p-2 w-full">
+                    <div class="bg-product  flex justify-center items-center mx-auto w-full rounded-xl">
+                        <i class="fa-solid my-20 fa-image fa-fw text-product fa-5x"></i>
+    
+                    </div>
+                    <div class="flex my-2">
+                      <div class="w-3/12 p-1">
+                            <div class="bg-product w-full  flex justify-center items-center rounded-xl">
+                                <i class="fa-solid my-6 fa-image fa-fw text-product fa-3xl "></i>
+            
+                            </div>
+                        </div>
+                       
+                        <div class="w-3/12 p-1">
+                            <div class="bg-product w-full  flex justify-center items-center rounded-xl">
+                                <i class="fa-solid my-6 fa-image fa-fw text-product fa-3xl "></i>
+            
+                            </div>
+                        </div>
+                        <div class="w-3/12 p-1">
+                            <div class="bg-product w-full  flex justify-center items-center rounded-xl">
+                                <i class="fa-solid my-6 fa-image fa-fw text-product fa-3xl "></i>
+            
+                            </div>
+                        </div>
+                         <div class="w-3/12 p-1">
+                        <div class="bg-product w-full  flex justify-center items-center rounded-xl relative">
+                            <img crossorigin="anonymous" src="" alt="">
+                            <div class="w-full absolute h-full top-0 left-0 flex justify-end ">
+                                <i class="fa-solid fa-xmark text-red-600 ms-auto block m-2 cursor-pointer"></i>
+                            </div>
+                        </div>
+                    </div>
+                
+                   
+                        @for (item of imageSelcted; track $index) {
+                            <div class="w-3/12 p-1">
+                                <div class="bg-product w-full  flex justify-center items-center rounded-xl">
+                                    <img crossorigin="anonymous" src="" alt="">
+                                    <i class="fa-solid fa-xmark text-red-600 ms-auto block m-2 cursor-pointer"></i>
+
+                                </div>
+                            </div>
+                        }
+                   
+                        <div class="w-3/12 p-1">
+                            <div class="relative border-2 border-dashed w-full cursor-pointer overflow-hidden  flex justify-center items-center rounded-xl">
+                                <i class="fa-solid fa-circle-plus my-6 fa-fw fa-3xl text-product"></i>
+                                <input type="file" class="absolute opacity-0  cursor-pointer left-0 " (change)="onFileSelected($event)" multiple >
+
+            
+                            </div>
+                        </div>
+                       
+                    </div>
+    
+    
+                </div>-->
+                <div class=" w-full rounded-xl bg-back-product my-2 p-6">
+                    <h2 class="font-main font-semibold text-2xl leading-8 ">Category</h2>
+                    <h3 class="font-main font-semibold text-base my-2">
+                        Product category
+                    </h3>
+                    <select (change)="change($event)"  name="" id="" class="p-2 w-10/12 bg-back-product  rounded-md border-2  border-solid outline-none text-main text-sm  font-normal	">
+                        <option value="" disabled selected>Select Category</option>
+                        @for (item of category; track $index) {
+
+                            <option [value]="item.id" >{{item.name}}</option>
+
+                        }
+                        
+                    </select>
+                    {{selctedCategory}}
+                   <div class="flex items-center my-4">
+                    <p (click)="addNewCategory()"  class="my-2 cursor-pointer text-row font-main font-semibold text-xs leading-4 w-6/12">
+                        +Add new category
+    
+                    </p>
+                    @if (isNew) {
+                       <form [formGroup]="NewCategory" (ngSubmit)="addCategory()">
+                        <div class="flex border-2 border-main2 border-solid rounded-md mx-4 w-6/12 ">
+        
+                            
+                            <input formControlName="name" type="text" class=" w-full text-black font-semibold text-base 	leading-6  py-1  outline-none rounded-md">
+                        <button type="submit" class=" bg-payment2 p-1 rounded-full">
+                            +
+                        </button>
+                  
+                        
+                    </div>
+                       </form>
+                    }
+                    @else {}
+    
+                    
+                   </div>
+                  @if (new)
+                   {
+                    <p (click)="addAllCategory()" class="cursor-pointer text-center p-2 w-6/12 border-2 bg-coupon rounded-2xl border-solid text-sm text-main block ms-auto font-normal">
+                        Add Category
+                    </p>
+                   }
+                   @else {
+                    <p (click)="updateCategory()" class="cursor-pointer text-center p-2 w-6/12 border-2 bg-coupon rounded-2xl border-solid text-sm text-main block ms-auto font-normal">
+                        Update Category
+                    </p>
+                   }
+                <div class="flex">
+                    @for (item of newCategory; track $index) {
+                        <div class="bg-product mx-4 text-center py-2 px-4 text-xs rounded-md font-semibold">
+                            {{item.name}} 
+                            <i (click)="deleteCategory(item.id!)" class="fa-solid fa-xmark mx-3 cursor-pointer"></i>
+                                            </div>
+                    }
+                   
+                </div>
+    
+                </div>
+                <div class=" w-full rounded-xl bg-back-product my-2 p-6">
+                    <h2 class="font-main font-semibold text-2xl leading-8 ">Pricing</h2>
+                    <label for="basePricing" class="my-6 font-semibold text-sm text-main">
+                        Base pricing
+                    </label>
+                    <div class=" flex border-2 border-main2 border-solid rounded-xl my-2">
+    
+                        <span class=" bg-payment2 p-1 rounded-md">
+                            SR
+                        </span>
+                        <input [value]="product?.price" formControlName="price" type="text" id="basePricing" class=" w-full bg-transparent text-black font-semibold text-base	leading-6  py-1  outline-none rounded-md">
+    
+                    </div>
+                    <label for="salePricing" class="my-6 font-semibold text-sm text-main">
+                        Sale pricing                </label>
+                    <div class=" flex border-2 border-main2 border-solid rounded-xl my-2">
+    
+                        
+                        <span class=" bg-payment2 p-1 rounded-md">
+                            SR
+                        </span>
+                        
+                        <input [value]="product?.after_discount_price" formControlName="after_discount_price" type="text" id="salePricing" class=" w-full bg-transparent text-black font-semibold text-base	leading-6  py-1  outline-none rounded-md">
+    
+                    </div>
+
+                     @if (new==false) 
+                        {
+                            
+                           <div class="flex justify-between my-3">
+                            <p (click)="updateProduct('after_discount_price')"  class="text-black text-center cursor-pointer border-2 border-solid border-main2 max-sm:px-2 md:px-3   mx-3 py-1 lg:px-6 rounded-xl text-base font-medium ">
+                           
+                                Update Sale pricing 
+                            </p>
+                            <p (click)="updateProduct('price')"  class="text-black text-center border-2 cursor-pointer border-solid border-main2 max-sm:px-2 md:px-3   mx-3 py-1 lg:px-6 rounded-xl text-base font-medium ">
+                           
+                                Update Base pricing
+                            </p>
+                           </div>
+                        }
+                   
+                    
+                   </div>
+                  
+    
+                </div>
+            <div class="lg:w-8/12 max-sm:w-full lg:order-2 max-sm:order-1 md:order-1  md:w-full p-2">
+    
+                <div class="p-6 bg-back-product">
+                    <h2 class="font-main font-semibold text-2xl leading-8 ">General Information</h2>
+                    <label for="nameProduct" class="my-6  font-semibold text-base text-main block">
+                        Name Product
+                    </label>
+                    <div class="flex">
+                        @if (new==false) 
+                        {
+                            
+                            <p (click)="updateProduct('name')"  class="text-black cursor-pointer text-center border-2 w-3/12  border-solid border-main2 max-sm:px-2 md:px-3   mx-3 py-1 lg:px-6 rounded-xl text-base font-medium ">
+                           
+                                Update Name
+                            </p>
+                        }
+                        <input [ngClass]="new?'w-full':'w-8/12'" [value]="product?.name" formControlName="name" type="text" id="nameProduct" class="   h-10 text-black font-normal bg-product text-end p-2 text-base	leading-6  py-1  outline-none rounded-md">
+
+                    </div>
+                    <label for="shortdes" class="my-6  font-semibold text-base text-main block">
+                        Short description
+                    </label>
+                    <div class="flex items-center">
+                        @if (new==false) 
+                        {
+                            
+                            <p (click)="updateProduct('short_description')"   class="text-black cursor-pointer text-center border-2 w-3/12  border-solid border-main2 max-sm:px-2 md:px-3   mx-3 py-1 lg:px-6 rounded-xl text-base font-medium ">
+                           
+                                Update Short description
+                            </p>
+                        }
+                        <input [ngClass]="new?'w-full':'w-8/12'" [value]="product?.short_description" formControlName="short_description" type="text" id="shortdes" class="  h-20 bg-product text-end p-2 text-black font-normal text-base	leading-6  py-1  outline-none rounded-md">
+
+                    </div>
+                    <label for="productdes" class="my-6  font-semibold text-base text-main block">
+                        Description Product
+                    </label>
+                    <div class="flex items-center">
+                        @if (new==false) 
+                        {
+                            
+                            <p (click)="updateProduct('description')"  class="text-black text-center cursor-pointer border-2 w-3/12  border-solid border-main2 max-sm:px-2 md:px-3   mx-3 py-1 lg:px-6 rounded-xl text-base font-medium ">
+                           
+                                Update  description
+                            </p>
+                        }
+                        <textarea [ngClass]="new?'w-full':'w-8/12'" [value]="product?.description" formControlName="description" type="text" id="productdes" class="  h-40 bg-product text-end p-2 text-black font-normal text-base	leading-6  py-1  outline-none rounded-md" name="" id=""></textarea>
+
+                    </div>
+    
+    
+    
+    
+                </div>
+               
+    
+            </div>
+            </div>
+    
+        </div>
+    
+</form>

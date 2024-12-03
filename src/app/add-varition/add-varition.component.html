@@ -1,0 +1,191 @@
+
+    <div>
+        <div class="flex justify-between my-1">
+            <h2 class="font-main font-semibold text-2xl leading-8 ">Add New Variance</h2>
+            <div class="flex"> 
+                <!--
+                    <button  (click)="allSize()" routerLink="addVarition" type="submit" class="bg-coupon   mx-5 py-1 px-6 rounded-xl text-base font-semibold ">
+                    Update
+                   </button>
+                -->
+              
+                  @if (new)
+                   {
+                    <button  (click)="allSize()" routerLink="addVarition" type="submit" class="bg-coupon   mx-5 py-1 px-6 rounded-xl text-base font-semibold ">
+                        <i class="fa-solid fa-check me-2"></i>
+                        Add
+                       </button>
+                   }
+                   @else 
+                   {
+                    <button  (click)="finish()" routerLink="addVarition" type="submit" class="bg-coupon   mx-5 py-1 px-6 rounded-xl text-base font-semibold ">
+                        <i class="fa-solid fa-check me-2"></i>
+                        Finish Update
+                       </button>
+                   }
+            </div>
+        
+        </div>
+        <div class="flex ">
+            <div class="w-4/12 p-2" >
+                <div class="bg-back-product p-2 w-full">
+                    @if ( !ismain)
+                     {
+                        <div class="relative border-2 border-dashed w-full cursor-pointer overflow-hidden  flex justify-center items-center rounded-xl">
+                            <i class="fa-solid fa-circle-plus my-20 fa-fw fa-3xl text-product"></i>
+                            <input type="file"  class="absolute opacity-0  cursor-pointer left-0 " (change)="onFileMainSelected($event)"  >
+    
+        
+                        </div>
+                     }
+                     @else 
+                     {
+                        <div class="relative bg-product w-full  flex justify-center items-center rounded-xl">
+                            <i (click)="deleteImage(selectedMainFiles!.id,true)" class="fa-solid fa-xmark my-6 fa-fw fa-3xl text-red-700 absolute -top-4 left-4 z-10 cursor-pointer"></i>
+
+                            <img crossorigin="anonymous" [src]="baseUrl+selectedMainFiles?.link" loading="lazy" class="" [alt]="baseUrl+selectedMainFiles?.link">
+                        </div>
+                     }
+                    <div class="bg-product hidden  flex justify-center items-center mx-auto w-full rounded-xl">
+                        <i class="fa-solid my-20 fa-image fa-fw text-product fa-5x"></i>
+                        
+                    </div>
+                    <div class="flex my-2 flex-wrap">
+                        <!--<div class="w-3/12 p-1">
+                            <div class="bg-product w-full  flex justify-center items-center rounded-xl">
+                                <i class="fa-solid my-6 fa-image fa-fw text-product fa-3xl "></i>
+            
+                            </div>
+                        </div>
+                       
+                        <div class="w-3/12 p-1">
+                            <div class="bg-product w-full  flex justify-center items-center rounded-xl">
+                                <i class="fa-solid my-6 fa-image fa-fw text-product fa-3xl "></i>
+            
+                            </div>
+                        </div>
+                        <div class="w-3/12 p-1">
+                            <div class="bg-product w-full  flex justify-center items-center rounded-xl">
+                                <i class="fa-solid my-6 fa-image fa-fw text-product fa-3xl "></i>
+            
+                            </div>
+                        </div>
+                    -->
+                        @for (item of imageSelcted; track $index) {
+                            <div class="w-3/12 relative p-1">
+
+                                <div class="bg-product w-full  flex justify-center items-center rounded-xl">
+                                    <i (click)="deleteImage(item.id,false)" class="fa-solid fa-xmark my-6 fa-fw fa-3xl text-red-700 absolute -top-4 left-4 z-10 cursor-pointer"></i>
+
+                                    <img crossorigin="anonymous" [src]="baseUrl+item.link" loading="lazy" class="" [alt]="baseUrl+item.link">
+                                </div>
+
+                            </div>
+                        }
+                   
+                        <div class="w-3/12 p-1">
+                            <div class="relative border-2 border-dashed w-full cursor-pointer overflow-hidden  flex justify-center items-center rounded-xl">
+                                <i class="fa-solid fa-circle-plus my-6 fa-fw fa-3xl text-product"></i>
+                                <input type="file" class="absolute opacity-0  cursor-pointer left-0 " (change)="onFileSelected($event)" multiple >
+
+            
+                            </div>
+                        </div>
+                       
+                    </div>
+    
+    
+                </div>
+                
+                <div class=" w-full rounded-xl bg-back-product my-2 p-6">
+                    <h2 class="font-main font-semibold text-2xl leading-8 ">Shoes Size</h2>
+                    <label for="shoesSize" class="my-10 font-semibold text-sm text-main ">
+                       Size
+                    </label>
+                    <div class=" flex border-2 border-main2 border-solid rounded-xl my-2">
+    
+                        
+                        <input  type="text" id="shoesSize" class=" w-8/12 bg-transparent text-black font-semibold text-base	leading-6  py-1  outline-none rounded-md">
+    
+                    </div>
+                    <label for="shoesSizeStock" class="my-6 font-semibold text-sm text-main">
+                        Size Stoke              </label>
+                    <div class=" flex border-2 border-main2 border-solid rounded-xl my-2">
+    
+                      
+                        <input  type="text" id="shoesSizeStock" class=" w-full bg-transparent text-black font-semibold text-base	leading-6  py-1  outline-none rounded-md">
+    
+                    </div>
+                    <button class="bg-coupon block ms-auto my-6  mx-3 py-1 px-6 rounded-xl text-base font-semibold selection:border-2 selection:border-black selection:border-solid">
+                        Add
+                       </button>
+
+                       <div class="flex">
+                        
+                            <div class="bg-product mx-4 text-center py-2 px-4 text-xs rounded-md font-semibold">
+                                 
+                                <i  class="fa-solid fa-xmark mx-3 cursor-pointer"></i>
+                                                </div>
+
+                       
+                    </div>
+        
+    
+                   </div>
+                  
+                 
+                </div>
+            <div class="w-8/12 p-2">
+    
+              
+               <div class="p-6 bg-back-product my-6">
+                <h2 class="font-main font-semibold text-2xl leading-8 mb-3 ">Size</h2>
+                @if (new==true)
+                 {
+                    <div class="sizes-container">
+                        <div  *ngFor="let size of sizes; let i = index" class="size-item w-1/12">
+                          
+                          <button class="w-full "  *ngIf="!selectedSizes[i]" 
+                                  (click)="selectSize(i)">
+                            {{ size.size }}
+                          </button>
+                          
+                          <div  *ngIf="selectedSizes[i]">
+                            
+                            <input [value]="size.id"   class="w-full h-10 text-center bg-coupon" type="text" [id]="size.id" [(ngModel)]="size.stock">
+                          </div>
+                        </div>
+                       
+    
+                      </div>
+                 }
+                 @else {
+                    <div class="sizes-container">
+                        <div class="flex justify-between">
+                            <select (change)="changeSize($event)"   class="p-2  rounded-md border-2  border-solid outline-none text-main text-sm  font-normal	" >
+                                <option value="" disabled selected > Select Size</option>
+                
+                                @for (item of updateSize; track $index) 
+                                {
+                                    <option [id]="item.id" [value]="[item.size,item.id]">
+                                        {{item.size}}
+                                    </option>
+                                }
+                                
+                            </select>
+                            <input [(ngModel)]="updateStockSize" type="text" class="p-2 w-3/12  rounded-md border-2  border-solid outline-none text-main text-sm  font-normal">
+                            <button (click)="update()" class="p-2 w-4/12 border-2 rounded-md border-solid text-base font-semibold bg-coupon ">
+                               Update Varient
+                            </button>
+                        </div>
+                    </div>
+                 }
+                  
+        
+               </div>
+    
+            </div>
+            </div>
+    
+        </div>
+    

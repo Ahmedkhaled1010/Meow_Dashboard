@@ -1,0 +1,56 @@
+<div class="bg-marketing py-5 px-8 rounded-xl  font-main">
+    <h2 class="font-semibold text-xl leading-8 my-5 ">Add coupon</h2>
+   <form [formGroup]="couponForm" (ngSubmit)="addCoupon()">
+
+    <label for="couponName" class="block text-base leading-6 font-semibold my-3 ">Coupon Name</label>
+
+    <div class="flex flex-wrap justify-between">
+        <div class="lg:w-5/12 md:w-full max-sm:w-full">
+            <input type="text" id="couponName" formControlName="name" class="w-full p-2 bg-coupon  rounded-md outline-none" >
+
+        </div>
+        <div class="lg:w-5/12 md:w-full max-sm:w-full max-sm:my-3">
+            <select (change)="selectType($event)"  class="rounded-md w-full px-4 py-2 border-2 border-main border-solid outline-none text-main text-base  font-semibold	" name="shipping" id="shipping">
+                <option disabled selected>Type</option>
+                <option value="precentage">Precentage</option>
+                <option value="discount">discount</option>
+            </select>
+        </div>
+        
+
+    </div>
+    <div class="flex flex-wrap justify-between">
+        <div class="lg:w-5/12 md:w-full max-sm:w-full">
+            <label for="couponUsage" class="block text-base leading-6 font-semibold my-3 ">Usage limit</label>
+
+            <input type="text" id="couponUsage" formControlName="usageLimit" class="w-full p-2 bg-coupon  rounded-md outline-none" >
+
+        </div>
+        <div class="lg:w-5/12 md:w-full max-sm:w-full max-sm:my-3">
+            <label for="couponAmount" class="block text-base leading-6 font-semibold my-3 ">Coupon amount</label>
+
+            <input type="text" id="couponAmount" formControlName="amount" class="w-full p-2 bg-coupon  rounded-md outline-none" >
+        </div>
+        
+
+    </div>
+    <label for="couponExpiry" class="block text-base leading-6 font-semibold my-3 ">Coupon expiry date</label>
+
+        <div class="flex flex-wrap justify-between">
+            <div class="lg:w-5/12 md:w-full max-sm:w-full">
+                <input (change)="selectDate($event)" type="date" id="couponExpiry" class="w-full p-2 bg-coupon  rounded-md outline-none" >
+    
+            </div>
+            <div class="lg:w-5/12 md:w-full max-sm:w-full">
+               <button type="submit" class="bg-coupon block lg:ms-auto max-sm:mx-auto md:mx-auto max-sm:my-2 md:my-2 py-2 px-6 rounded-md text-base font-semibold ">
+                Add coupon
+               </button>
+            </div>
+            
+    
+        </div>
+   </form>
+
+
+
+</div>

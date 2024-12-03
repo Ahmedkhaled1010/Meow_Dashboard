@@ -1,0 +1,171 @@
+<div class="">
+    <div class="mx-7 w-11/12">
+       <div class="border lg:w-3/12 max-sm:w-8/12 py-3 text-center rounded-xl">
+        <p class="font-main text-main font-normal text-xl">Orders # <span class="text-black mx-5">
+            {{order?.orderNo}}
+        </span></p>
+       </div>
+       <p class="font-main text-main font-normal text-xl my-4" >
+        Payment via Pay Later with Tamara Paid on Date June 8, 2024 Time 10:01 am
+       </p>
+       <div class=" p-6  border rounded-xl  ">
+        <div class="lg:w-11/12 mx-auto flex justify-between items-center ">
+           <div class="flex w-6/12 items-center">
+           <div>
+            <p class="  my-3">
+                Status:
+            </p>
+            <p class="text-2xl text-main">
+                {{order?.status}}
+            </p>
+           </div>
+           <div class="mx-5">
+            <p class="  my-3">
+              Update  Status: <span (click)="updateOrder()" class="underline text-blue-400 cursor-pointer">Click to Update</span>
+            </p>
+            <select (change)="changeOrderStatus($event)"  class="p-2  rounded-md border-2  border-solid outline-none text-main text-sm  font-normal	" name="Tax" id="Tax">
+                <option value="" disabled selected > Select a Status</option>
+
+                <option value="Outstanding">
+                    Outstanding
+                </option>
+                <option value="Processing">
+                    Processing
+                </option>
+                <option value="Refunded">
+                    Refunded
+                </option>
+                <option value="Completed">
+                    Completed
+                </option>
+                <option value="Cancelled">
+                    Cancelled
+                </option>
+                
+            </select>
+
+           </div>
+           </div>
+           <div (click)="downloadInvoice()" class="hidden lg:block">
+            <i class="fa-solid fa-download cursor-pointer ">
+                <span class="font-main text-base font-semibold">
+                    Download an invoic
+
+                </span>
+            </i>
+           </div>
+        </div>
+     <div class="flex flex-wrap">
+        <div class="lg:w-6/12 max-sm:w-full my-6 font-main text-black text-base font-normal ">
+          
+           
+
+            <div class="flex justify-between w-4/12 items-center ">
+                <p class="text-xl">Billing</p>
+                <i class="fa-solid fa-pen fa-fw cursor-pointer"></i>
+            </div>            
+            <p class="my-3">
+                City : <span class="text-main"> 
+                    {{order?.city}}
+                </span> 
+            </p>
+             
+            <p class="my-3">
+                Zone : <span class="text-main"> 
+                    {{order?.zone}}
+                </span> 
+            </p>
+            <p class="my-3">
+                 
+                 Location : <span class="text-main"> 
+                    {{order?.location}}
+                </span> 
+            </p>
+            <p class="my-3">
+                  
+                 Post code : <span class="text-main"> 
+                    {{order?.postalCode}}
+                </span> 
+            </p>
+            <p class="my-3">
+                 
+                 Email address : <span class="text-main"> 
+                    {{order?.user?.email}}
+                </span> 
+            </p>
+              
+            <p class="my-3">
+                Phone : <span class="text-main"> 
+                    {{order?.phoneNumber}}
+
+                </span> 
+            </p>
+        </div>
+        <div class="lg:w-6/12 my-6 font-main text-black text-base font-normal ">
+            <table class="w-10/12 font-main text-black text-base font-normal mb-6">
+                <thead>
+                    <th class="w-8/12 text-xl leading-6 font-normal  text-justify">
+                        Order
+                    </th>
+                    <th class="tex-sm leading-6 font-normal text-table">
+                        Cost
+                    </th>
+                    <th class="tex-sm leading-6 font-normal text-table">
+                        Qty
+                    </th>
+                </thead>
+                <tbody class="my-6">
+                    <tr>
+                        <td class="text-justify">
+                            <div class="flex justify-start relative -start-7 ">
+                                <img src="../../assets/Images/logo.png" class="w-6/12   " alt="">
+                                <div>
+                                    <p class="underline pb-2 text-row cursor-pointer">عرض الـ 5 تيشرتات !</p>
+                                    <p>Size :  <span>L</span></p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-center text-xs leading-6">
+                            {{order?.total_price}} SR
+                        </td>
+                        <td class="text-center text-xs leading-6">
+                            {{order!.order_items[0].quantity}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+
+            <p class="my-1 text-main">
+                Items Subtotal : <span class="text-black"> 
+                    {{order?.beforeDiscount}} SR
+                </span> 
+            </p>
+             
+            <p class="my-1 text-main">
+                Shipping : <span class="text-black"> 
+                    {{order?.deliveryService}} SR
+                </span> 
+            </p>
+            <p class="my-1 text-main">
+                 
+                Discount : <span class="text-black"> 
+                    {{order?.discount}} SR
+                </span> 
+            </p>
+            <p class="my-1 text-main">
+                  
+                Order Total : <span class="text-black"> 
+                    {{order?.total_price}} SR
+                </span> 
+            </p>
+            <p class="my-1 text-main">
+                 
+                Paid: <span class="text-black"> 
+                </span> 
+            </p>
+        </div>
+     </div>
+       </div>
+    </div>
+</div>

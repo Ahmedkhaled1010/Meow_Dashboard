@@ -1,1 +1,132 @@
-/* You can add global styles to this file, and also import other style files */
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$MEOW-primary: mat.define-palette(mat.$indigo-palette);
+$MEOW-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$MEOW-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$MEOW-theme: mat.define-light-theme((
+  color: (
+    primary: $MEOW-primary,
+    accent: $MEOW-accent,
+    warn: $MEOW-warn,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($MEOW-theme);
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face {
+    font-family: Inter;
+    src: url(../src/assets/Fonts/Inter-VariableFont_opsz\,wght.ttf);
+}
+@font-face {
+    font-family: Poppins;
+    src: url(../src/assets/Fonts/Poppins-Regular.ttf);
+}
+
+.font-main
+{   
+    font-family: Inter;
+}
+.text-main
+{
+    color: #717171;
+}
+.border-main
+{
+    border-color:rgb(113, 113, 113) ;
+}
+.border-main2
+{
+    border-color:#E1E1E1
+    ;
+}
+.bg-table
+{
+    background-color: #E0E0E0
+    ;
+}
+.text-head-table
+{
+    color: #3A3A3A;
+}
+.table-font
+{
+font-family: Poppins;
+}
+.text-row
+{
+    color: #2587F9;
+}
+.text-table
+{
+    color: #888888;
+}
+
+.bg-arrow
+{
+    background-color: #D9D9D9;
+}
+.bg-payment
+{
+    background-color: #D7D7D7;
+}
+.bg-payment2
+{
+    background-color: #EBEBEB;
+}
+
+.bg-coupon
+{
+    background-color: #ECECEC;
+}
+.text-coupon
+{
+    color: #9A9A9A;
+}
+.bg-marketing
+{
+    background-color: #F9F9F9
+    ;
+}
+.bg-product
+{
+    background-color: #ECECEC
+    ;
+}
+.bg-back-product
+{
+    background-color: #F9F9F9;
+}
+.text-product
+{
+    color:#808080
+    ;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

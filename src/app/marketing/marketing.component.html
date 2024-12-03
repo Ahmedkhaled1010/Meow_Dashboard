@@ -1,0 +1,93 @@
+<div class="p-3">
+    <h2 class="font-main font-semibold text-xl leading-8 text-main mb-5">Coupon</h2>
+    <div class="lg:w-9/12 mx-auto">
+        <div class="mt-5 flex ">
+            <div   class="mx-3 bg-coupon rounded-t-xl cursor-pointer	font-semibold font-main text-coupon text-sm ">
+                <p routerLinkActive="text-black" routerLink="cupon"  class="py-1 px-4">coupon</p>
+            </div>
+            <div   class="mx-3 bg-coupon rounded-t-xl cursor-pointer	font-semibold font-main text-coupon text-sm ">
+                <p routerLinkActive="text-black" routerLink="basket"  class="py-1 px-4">basket</p>
+            </div>
+        </div>
+        <div>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+    <div class="my-10">
+        <table class="table-fixed w-full border-collapse border border-slate-400   ">
+            <thead class="bg-table text-main text-sm font-semibold rounded-md">
+                <tr>
+                    <th class="p-3 text-black w-1/12 mx-6">
+                       
+                        <input class="w-full" type="checkbox">
+                    </th>
+                    <th class="text-start">
+                        Name
+                    </th>
+                    <th class="lg:text-start text-center">
+                        Coupon type
+                    </th>
+                    <th class="lg:text-start text-center ">
+                        Usage
+                    </th>
+                    <th class="lg:text-start text-center ">
+                        Limit
+                    </th>
+                    <th class="text-start hidden lg:block">
+                        Expiry date
+                    </th>
+                    
+                    
+                </tr>
+            </thead>
+            <tbody class="text-center table-font font-semibold text-base table-font text-table  ">
+             
+                @for (item of allCoupon; track $index) {
+
+                    <tr [id]="item.id" class="border-collapse border border-slate-400 p-10 " >
+                        <td [id]="item.id" class="p-4">
+                            <input class="w-full" type="checkbox" [value]="item.id" (change)="change($event)">
+        
+                        </td>
+                        <td class="text-start text-sm font-semibold text-row">
+                            {{item.name}}
+                        </td>
+                        <td class=" lg:text-start text-center text-sm font-semibold">
+                            {{item.type}}
+
+                        </td>
+                        <td class=" lg:text-start text-center text-sm font-semibold">
+                            {{item.usageLimit}}
+
+                        </td>
+                        <td class="lg:text-start text-center text-sm font-semibold">
+                            {{item.amount}}
+
+                        </td>
+                        <td class="text-start  hidden lg:block text-sm font-semibold">
+                            {{item.expiryDate.slice(0,10)}}
+
+                        </td>
+                      </tr>
+                }
+                
+                 
+                 
+                 
+                 
+               
+            </tbody>
+        </table>
+    
+        <div class="flex items-center my-6">
+            <div class="lg:w-2/12 max-sm:w-6/12">
+                <p (click)="deleteCoupon()" class="mx-10 border-2 text-center p-2 text-red-500 rounded-md cursor-pointer ">
+                    Remove
+                </p>
+            </div>
+            
+        </div>
+    </div>
+
+
+</div>

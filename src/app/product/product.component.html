@@ -1,0 +1,80 @@
+<!--
+    <div>
+    <label for="productDate" class="block font-main text-main ">Date Range : </label>
+<input type="date" name="productDate" id="productDate" class="border-main2 border-2 border-solid outline-none my-3 p-1 rounded md:w-6/12 max-sm:w-6/12 lg:w-4/12">
+
+
+</div>
+-->
+<h2 class="ms-8 text-3xl font-bold">
+    Product
+</h2>
+<div class="flex md:flex-wrap max-sm:flex-wrap my-4">
+    <div class="lg:w-4/12  md:w-6/12 max-sm:w-6/12 p-2">
+        <div class="border-solid border-main2 border-2 rounded-2xl max-sm:p-4 md:p-4	lg:p-8">
+            <p class="font-main font-normal text-xl text-main mb-4">Product #</p>
+            <span class="font-main font-normal text-2xl text-black ">{{numOfBroduct}}</span>
+        </div>
+    </div>
+    <div class="lg:w-4/12  md:w-6/12 max-sm:w-6/12 p-2">
+        <div class="border-solid border-main2 border-2 rounded-2xl	max-sm:p-4 md:p-4	lg:p-8">
+            <p class="font-main font-normal text-xl text-main mb-4">Gross Revenue</p>
+            <span class="font-main font-normal text-2xl text-black ">{{total}} SR</span>
+        </div>
+    </div>
+    <div class="lg:w-4/12  md:w-6/12 max-sm:w-6/12 p-2">
+        <div class="border-solid border-main2 border-2 rounded-2xl	max-sm:p-4 md:p-4	lg:p-8">
+            <p class="font-main font-normal text-xl text-main mb-4">Average order value</p>
+            <span class="font-main font-normal text-2xl text-black ">{{avg.toFixed(2)}} SR</span>
+        </div>
+    </div>
+</div>
+<!--
+    <div class="my-12 flex justify-end ">
+    <p class=" font-main text-xl leading-6 font-semibold text-black">
+        <i class="fa-solid fa-cloud-arrow-down "></i>
+        download
+    </p>
+  
+</div>
+-->
+<div class="">
+    <table class="table-fixed w-full border-collapse border border-slate-400 ">
+        <thead class="bg-table text-head-table">
+            <th class="p-3 ">
+                products
+            </th>
+            <th>
+                Gross Revenue
+            </th>
+           <!--
+                 <th>
+                Item Sold
+            </th>
+            -->
+            <th>
+                in Stock
+            </th>
+        </thead>
+        <tbody class="text-center table-font font-semibold text-base table-font text-table  ">
+         
+            @for (item of allAalysis; track $index) 
+            {
+                <tr class="border-collapse border border-slate-400 p-6 " >
+                    <td class="p-4 text-row underline">
+                       {{item?.['product name']}}
+                    </td>
+                    <td>
+                        {{item?.['total revenue']?item?.['total revenue']:0}} SR
+                    </td>
+                   
+                    <td>
+                       {{item.stock}}
+                    </td>
+                  </tr>
+            }
+           
+             
+        </tbody>
+    </table>
+</div>

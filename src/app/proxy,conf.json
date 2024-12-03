@@ -1,0 +1,11 @@
+{
+    "/api": {
+      "target": "https://meow-e-commerce-backend.onrender.com",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug",
+      "pathRewrite": {
+        "^/api": ""
+      }
+    }
+  }

@@ -1,0 +1,160 @@
+<div class="p-3">
+    <h2 class="font-main font-semibold text-xl leading-8 text-main mb-5">Payment</h2>
+
+    <table class="table-fixed w-full border-collapse border border-slate-400 ">
+        <thead class="bg-table text-head-table rounded-md">
+            <tr>
+                <th class="p-3  ">
+                    Payment method
+                </th>
+                <th>
+                    Status
+                </th>
+                <th class="hidden lg:block" >
+                    Extra
+                </th>
+              
+                
+            </tr>
+        </thead>
+        <tbody class="text-center table-font font-semibold text-base table-font text-black  ">
+         
+            <tr class="border-collapse border border-slate-400 p-6  " >
+                <td   class="p-4 text-xl leading-8 ">
+                    Cash on delivery
+                </td>
+                <td class="">
+                    <mat-slide-toggle labelPosition="before"></mat-slide-toggle>
+
+                </td>
+                <td class="hidden lg:block">
+                    <input type="text" class="border-2 border-black border-solid outline-none w-2/12">
+                </td>
+              </tr>
+              <tr class="border-collapse border border-slate-400 p-6  " >
+                <td   class="p-4 text-xl leading-8 ">
+                    Tamara gateway
+                </td>
+                <td>
+                    <mat-slide-toggle  labelPosition="before"></mat-slide-toggle>
+
+                </td>
+                <td class="hidden lg:block">
+                    <input type="text" class="border-2  border-black border-solid outline-none w-2/12">
+                </td>
+              </tr>
+              <tr class="border-collapse border border-slate-400 p-6  " >
+                <td   class="p-4 text-xl leading-8 ">
+                    Visa gateway
+                </td>
+                <td>
+                    <mat-slide-toggle labelPosition="before"></mat-slide-toggle>
+
+                </td>
+                <td class="hidden lg:block">
+                    <input type="text" class="border-2 border-black border-solid outline-none w-2/12">
+                </td>
+              </tr>
+              <tr class="border-collapse border border-slate-400 p-6  " >
+                <td   class="p-4 text-xl leading-8 ">
+                    Check Payment                </td>
+                <td>
+                    <mat-slide-toggle labelPosition="before"></mat-slide-toggle>
+
+                </td>
+                <td class="hidden lg:block">
+                    <input type="text" class="border-2 border-black border-solid outline-none w-2/12">
+                </td>
+              </tr>
+            
+           
+        </tbody>
+    </table>
+    <div class="my-12 flex flex-wrap justify-between">
+        <div class="lg:w-5/12 max-sm:w-full md:w-full">
+            <h3 class="text-black text-xl leading-8	font-semibold mb-5">Shipping</h3>
+            <select  class="rounded-md w-9/12 px-4 py-2 border-2 border-main border-solid outline-none text-main text-base  font-semibold	" name="shipping" id="shipping">
+                <option value="free">Free Shipping</option>
+                <option value="standard">Standard Shipping</option>
+            </select>
+
+           @if (freeShipping) {
+            <div class="flex justify-between my-5">
+                <div class="w-4/12 bg-payment py-1 rounded-md">
+                    <span class="mx-1 bg-payment2 p-1 rounded-md">
+                        SR
+                    </span>
+                </div>
+                <div class="w-7/12 bg-payment py-1 rounded-md">
+                    
+                </div>
+            </div>
+           }
+           @else {
+            <div class="flex justify-between my-5">
+                <div class="w-4/12 flex border-2 border-main2 border-solid rounded-md">
+
+                    <span class="mx-1 bg-payment2 p-1 rounded-md">
+                        SR
+                    </span>
+                    <input type="text" class=" w-8/12 text-black font-semibold text-base	leading-6  py-1  outline-none rounded-md">
+
+                </div>
+                <div class="w-7/12   rounded-md">
+                    <input type="text" class=" w-full  p-2 text-black font-semibold text-sm	leading-5	  border-2 border-main2 border-solid  outline-none rounded-md">
+
+                </div>
+            </div>
+
+           }
+        </div>
+        <div class="lg:w-5/12 max-sm:w-full md:w-full">
+            <h3 class="text-black text-xl leading-8	font-semibold mb-5">Tax</h3>
+            <select  class="w-9/12 px-4 py-2 rounded-md border-2 border-main border-solid outline-none text-main text-base  font-semibold	" name="Tax" id="Tax">
+                <option value="free">Free Tax</option>
+                <option value="standard">Standard Tax</option>
+            </select>
+
+            @if (freeTax) {
+                <div class="flex justify-between my-5">
+                    <div class="w-4/12 bg-payment py-1 rounded-md">
+                        <span class="mx-1 bg-payment2 p-1 rounded-md">
+                            SR
+                        </span>
+                    </div>
+                    <div class="w-7/12 bg-payment py-1 rounded-md">
+                        
+                    </div>
+                </div>
+            }
+            @else {
+                <div class="flex justify-between my-5">
+                    <div class="w-4/12 flex border-2 border-main2 border-solid rounded-md">
+    
+                        <span class="mx-1 bg-payment2 p-1 rounded-md">
+                            SR
+                        </span>
+                        <input type="text" class=" w-8/12 text-black font-semibold text-base	leading-6  py-1  outline-none rounded-md">
+    
+                    </div>
+                    <div class="w-7/12   rounded-md">
+                        <input type="text" class=" w-full  p-2 text-black font-semibold text-sm	leading-5	  border-2 border-main2 border-solid  outline-none rounded-md">
+    
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <button class="font-main block  ms-auto me-10">
+        Save Change
+    </button>
+</div>
+<!--
+    <div class="bg-black relative w-12 h-6 rounded-md">
+    <div class="h-7 absolute  w-7 bg-white rounded-full">
+
+    </div>
+
+</div>
+-->

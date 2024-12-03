@@ -1,0 +1,36 @@
+<div class="my-20">
+    <!--
+        <div>
+        <label for="productDate" class="block font-main text-main ">Date Range : </label>
+    <input type="date" name="productDate" id="productDate" class="border-main2 border-2 border-solid outline-none my-3 p-1 rounded md:w-6/12 max-sm:w-6/12 lg:w-4/12">
+    
+    
+    </div>
+    -->
+    <div class="flex flex-wrap my-4">
+        <div class="lg:w-4/12  md:w-6/12 max-sm:w-6/12 p-2">
+            <div class="border-solid border-main2 border-2 rounded-2xl	p-8">
+                <p class="font-main font-normal text-xl text-main mb-4">Returns</p>
+                <span class="font-main font-normal text-2xl text-black ">3,249.22 SR</span>
+            </div>
+        </div>
+        <div class="lg:w-4/12  md:w-6/12 max-sm:w-6/12 p-2">
+            <div class="border-solid border-main2 border-2 rounded-2xl		p-8">
+                <p class="font-main font-normal text-xl text-main mb-4">Coupons</p>
+                <span class="font-main font-normal text-2xl text-black "> {{allAalysis?.coupon_count}}</span>
+            </div>
+        </div>
+        <div class="lg:w-4/12  md:w-6/12 max-sm:w-6/12 p-2">
+            <div class="border-solid border-main2 border-2 rounded-2xl	max-sm:p-4 md:p-4	lg:p-8">
+                <p class="font-main font-normal text-xl text-main mb-4">Total Sales</p>
+                <span class="font-main font-normal text-2xl text-black ">{{allAalysis?.['total sales']}} SR</span>
+            </div>
+        </div>
+        <div class="lg:w-4/12  md:w-6/12 max-sm:w-6/12 p-2 mx-auto">
+            <div class="border-solid border-main2 border-2 rounded-2xl	max-sm:p-4 md:p-4	lg:p-8">
+                <p class="font-main font-normal text-xl text-main mb-4">Taxes</p>
+                <span class="font-main font-normal text-2xl text-black ">{{allAalysis?.taxs}} SR</span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -30,9 +30,16 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "node_modules/@costlydeveloper/ngx-awesome-popup/styles/theme.css",
+              "src/styles.scss",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css" ,
+              "node_modules/ngx-toastr/toastr.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/jquery-ui/dist/jquery-ui.min.js"
+            ],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
@@ -73,6 +80,7 @@
               "buildTarget": "MEOW:build:development"
             }
           },
+          
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
@@ -102,5 +110,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "07a43d62-2baf-4a40-903e-1e19871aa123"
   }
 }
